@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Darija Mastery — La méthode pour parler darija</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#006233;
+    --green-deep:#024d29;
+    --terracotta:#C4622D;
+    --cream:#F5F0E8;
+    --cream-2:#EFE7D8;
+    --gold:#D4A853;
+    --ink:#2D2D2D;
+    --ink-soft:#5a554d;
+    --line:rgba(45,45,45,.12);
+    --bg:#F5F0E8;
+    --shadow:0 24px 60px -28px rgba(45,45,45,.35);
+    --shadow-sm:0 10px 30px -18px rgba(45,45,45,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Plus Jakarta Sans",system-ui,sans-serif;
+    background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+    min-height:100vh;display:flex;flex-direction:column;
+  }
+  h1,h2,h3{font-family:"Sora",sans-serif;line-height:1.1;letter-spacing:-.02em;font-weight:700}
+  .ar{font-family:"Reem Kufi",sans-serif;direction:rtl;font-weight:500}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--green);color:var(--cream)}
+
+  .top{display:flex;justify-content:center;padding:20px;border-bottom:1px solid var(--line);background:rgba(245,240,232,.8);backdrop-filter:blur(10px)}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:"Sora";font-weight:800;font-size:1.16rem;letter-spacing:-.02em}
+  .brand .mark{width:36px;height:36px;border-radius:11px;background:var(--green);display:grid;place-items:center;box-shadow:inset 0 0 0 1.5px rgba(212,168,83,.55)}
+  .brand .mark svg{width:21px;height:21px}
+  .brand .ar{color:var(--terracotta);font-size:.98rem}
+
+  main{flex:1;display:flex;align-items:center;justify-content:center;padding:50px 22px 64px;position:relative;overflow:hidden}
+  main::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(680px 420px at 84% -10%,rgba(212,168,83,.26),transparent 60%),
+      radial-gradient(560px 440px at -6% 6%,rgba(0,98,51,.12),transparent 60%);}
+  .stage{position:relative;z-index:1;width:100%;max-width:660px;text-align:center}
+
+  .greet{display:inline-flex;align-items:center;gap:.6rem;background:#fff;border:1px solid var(--line);
+    padding:.4rem .9rem .4rem .4rem;border-radius:999px;box-shadow:var(--shadow-sm);font-weight:700;font-size:.84rem;color:var(--ink-soft);margin-bottom:1.6rem}
+  .greet .pill{background:var(--green);color:var(--cream);border-radius:999px;padding:.28rem .8rem;font-family:"Reem Kufi";font-size:1rem;direction:rtl}
+
+  h1.hook{font-size:clamp(2rem,6vw,3.3rem);font-weight:800}
+  h1.hook .accent{color:var(--green);position:relative;white-space:nowrap}
+  h1.hook .accent::after{content:"";position:absolute;left:0;right:0;bottom:.05em;height:.16em;background:var(--gold);opacity:.5;border-radius:3px;z-index:-1}
+
+  .subhook{font-size:clamp(1.05rem,2.6vw,1.3rem);color:var(--ink-soft);margin-top:1.4rem;line-height:1.5}
+  .subhook b{color:var(--ink);font-weight:700}
+  .num{color:var(--terracotta);font-weight:700;white-space:nowrap}
+
+  .relate{margin-top:1.2rem;font-size:1.02rem;color:var(--ink-soft)}
+  .relate b{color:var(--ink);font-weight:700}
+
+  .optin{margin:34px auto 0;max-width:460px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:28px;text-align:left;position:relative;overflow:hidden}
+  .optin::before{content:"";position:absolute;top:0;right:0;width:120px;height:120px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 2 L38 20 L20 38 L2 20 Z' fill='none' stroke='%23006233' stroke-width='1'/%3E%3C/svg%3E");
+    background-size:26px 26px;opacity:.1;transform:translate(34px,-34px)}
+  .optin .ftitle{position:relative;font-family:"Sora";font-weight:700;font-size:1.05rem;margin-bottom:1.1rem;text-align:center}
+  .field{margin-bottom:13px;position:relative}
+  .field label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.4rem;padding-left:.15rem}
+  .field input{width:100%;font-family:"Plus Jakarta Sans";font-size:1.04rem;padding:.92rem 1.05rem;background:var(--cream);
+    border:1.5px solid var(--line);border-radius:12px;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s,background .2s}
+  .field input::placeholder{color:#b1a896}
+  .field input:focus{border-color:var(--green);background:#fff;box-shadow:0 0 0 3px rgba(0,98,51,.12)}
+  .field input.err{border-color:var(--terracotta);box-shadow:0 0 0 3px rgba(196,98,45,.14)}
+  .cta{width:100%;margin-top:6px;font-family:"Sora";font-weight:700;font-size:1.1rem;
+    background:var(--green);color:var(--cream);border:0;border-radius:999px;padding:1.1rem 1.4rem;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:.55rem;box-shadow:0 14px 30px -14px rgba(0,98,51,.7);
+    transition:background .2s,transform .15s,box-shadow .2s}
+  .cta:hover{background:var(--green-deep);transform:translateY(-2px);box-shadow:0 18px 38px -14px rgba(0,98,51,.8)}
+  .cta:active{transform:translateY(0)}
+  .cta svg{width:19px;height:19px}
+
+  .trust{display:flex;align-items:center;justify-content:center;gap:.7rem;flex-wrap:wrap;margin-top:18px;font-size:.85rem;color:var(--ink-soft);font-weight:600}
+  .trust .sep{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+  .proof{display:flex;align-items:center;justify-content:center;gap:.85rem;margin-top:30px;flex-wrap:wrap}
+  .avs{display:flex}
+  .avs span{width:36px;height:36px;border-radius:50%;border:2.5px solid var(--cream);margin-left:-11px;display:grid;place-items:center;font-size:.72rem;font-weight:700;color:#fff;font-family:"Sora"}
+  .avs span:first-child{margin-left:0}
+  .proof .ptxt{font-size:.88rem;color:var(--ink-soft);text-align:left}
+  .proof .ptxt b{color:var(--ink)}
+  .stars{color:var(--gold);letter-spacing:1px}
+
+  .berber-band{height:30px;width:100%;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='30' viewBox='0 0 48 30'%3E%3Cg fill='none' stroke='%23C4622D' stroke-width='1.3'%3E%3Cpath d='M24 4 L40 15 L24 26 L8 15 Z'/%3E%3Cpath d='M24 10 L31 15 L24 20 L17 15 Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:48px 30px;opacity:.4}
+
+  footer{padding:26px 22px 40px;text-align:center}
+  .disc{max-width:680px;margin:0 auto;font-size:.78rem;color:var(--ink-soft);line-height:1.55}
+  .disc a{color:var(--terracotta);text-decoration:underline}
+
+  @media(min-width:760px){ main{padding:70px 22px 84px} }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <span class="brand">
+    <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 L21 12 L12 22 L3 12 Z" stroke="#D4A853" stroke-width="1.5"/><path d="M12 7 L17 12 L12 17 L7 12 Z" fill="#F5F0E8"/></svg></span>
+    Darija&nbsp;Mastery <span class="ar">دارجة</span>
+  </span>
+</div>
+
+<main>
+  <div class="stage">
+    <span class="greet"><span class="pill ar">مرحبا</span> Documentaire gratuit · Dialecte algérien</span>
+
+    <h1 class="hook">Cette méthode te fera passer <span class="accent">d'immigré(e) à local</span></h1>
+
+    <p class="subhook">Celle qui a déjà permis à <span class="num">+350 personnes</span> de tenir une vraie conversation en algérien — <b>en partant de zéro</b>.</p>
+
+    <p class="relate">Ils étaient enfants d'immigrés, expatriés, simples curieux.<br><b>Beaucoup n'avaient jamais osé dire un mot.</b></p>
+
+    <form class="optin" id="optin" novalidate>
+      <div class="ftitle">Je veux voir le documentaire gratuit&nbsp;👇</div>
+      <div class="field">
+        <label for="fn">Ton prénom</label>
+        <input type="text" id="fn" name="first_name" placeholder="Ex. Djamel" autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="em">Ton adresse email</label>
+        <input type="email" id="em" name="email" placeholder="ton@email.com" autocomplete="email">
+      </div>
+      <button type="submit" class="cta">
+        Voir la vidéo gratuite
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+
+    <div class="trust">
+      <span>Accès immédiat</span><span class="sep"></span>
+      <span>Vidéo gratuite</span><span class="sep"></span>
+      <span>Zéro spam</span>
+    </div>
+
+    <div class="proof">
+      <div class="avs">
+        <span style="background:#006233">LM</span>
+        <span style="background:#C4622D">YB</span>
+        <span style="background:#D4A853">SK</span>
+        <span style="background:#5a554d">+</span>
+      </div>
+      <div class="ptxt"><span class="stars">★★★★★</span><br><b>350+ apprenants</b> nous font confiance</div>
+    </div>
+  </div>
+</main>
+
+<div class="berber-band" aria-hidden="true"></div>
+
+<footer>
+  <p class="disc">
+    Les informations présentées sur cette page et dans la vidéo sont fournies à titre informatif et pédagogique. Elles ne constituent ni un conseil personnalisé, ni une promesse de résultats. Chaque situation étant différente, les décisions prises à l'issue du visionnage relèvent exclusivement de votre responsabilité.<br><br>
+    En soumettant ce formulaire, vous acceptez notre <a href="#">politique de confidentialité</a>.
+  </p>
+</footer>
+
+<script>
+  const qp = new URLSearchParams(location.search);
+  if (qp.get('first_name')) document.getElementById('fn').value = qp.get('first_name');
+  if (qp.get('email')) document.getElementById('em').value = qp.get('email');
+
+  const form = document.getElementById('optin');
+  const fn = document.getElementById('fn');
+  const em = document.getElementById('em');
+  const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let ok = true;
+    if (fn.value.trim().length < 2) { fn.classList.add('err'); ok = false; } else fn.classList.remove('err');
+    if (!validEmail(em.value.trim())) { em.classList.add('err'); ok = false; } else em.classList.remove('err');
+    if (!ok) { (fn.classList.contains('err') ? fn : em).focus(); return; }
+    const u = new URLSearchParams({ first_name: fn.value.trim(), email: em.value.trim() });
+    // TODO: remplacer par ton URL de redirection ou ton endpoint d'inscription
+    location.href = 'darija-mastery-video.html?' + u.toString();
+  });
+
+  [fn, em].forEach(i => i.addEventListener('input', () => i.classList.remove('err')));
+</script>
+</body>
+</html>
