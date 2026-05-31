@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Darija Mastery — La vidéo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#006233;
+    --green-deep:#024d29;
+    --terracotta:#C4622D;
+    --cream:#F5F0E8;
+    --cream-2:#EFE7D8;
+    --gold:#D4A853;
+    --ink:#2D2D2D;
+    --ink-soft:#5a554d;
+    --line:rgba(45,45,45,.12);
+    --shadow:0 24px 60px -28px rgba(45,45,45,.35);
+    --shadow-sm:0 10px 30px -18px rgba(45,45,45,.4);
+    --live:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Plus Jakarta Sans",system-ui,sans-serif;
+    background:var(--cream);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+    min-height:100vh;display:flex;flex-direction:column;
+  }
+  h1,h2,h3{font-family:"Sora",sans-serif;line-height:1.12;letter-spacing:-.02em;font-weight:700}
+  .ar{font-family:"Reem Kufi",sans-serif;direction:rtl;font-weight:500}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--green);color:var(--cream)}
+
+  .top{display:flex;justify-content:center;padding:20px;border-bottom:1px solid var(--line);background:rgba(245,240,232,.8);backdrop-filter:blur(10px)}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:"Sora";font-weight:800;font-size:1.16rem;letter-spacing:-.02em}
+  .brand .mark{width:36px;height:36px;border-radius:11px;background:var(--green);display:grid;place-items:center;box-shadow:inset 0 0 0 1.5px rgba(212,168,83,.55)}
+  .brand .mark svg{width:21px;height:21px}
+  .brand .ar{color:var(--terracotta);font-size:.98rem}
+
+  main{flex:1;padding:46px 22px 64px;position:relative;overflow:hidden}
+  main::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(760px 460px at 50% -12%,rgba(212,168,83,.22),transparent 62%);}
+  .stage{position:relative;z-index:1;width:100%;max-width:840px;margin:0 auto;text-align:center}
+
+  .greet{display:inline-flex;align-items:center;gap:.55rem;background:#fff;border:1px solid var(--line);
+    padding:.42rem .95rem;border-radius:999px;box-shadow:var(--shadow-sm);font-weight:700;font-size:.84rem;color:var(--terracotta);margin-bottom:1.3rem}
+
+  h1.hook{font-size:clamp(1.7rem,4.8vw,2.9rem);font-weight:800}
+  h1.hook .accent{color:var(--green)}
+
+  .live-row{display:inline-flex;align-items:center;gap:.7rem;margin-top:1.4rem;font-size:.92rem;font-weight:700;color:var(--ink-soft);
+    background:#fff;border:1px solid var(--line);border-radius:999px;padding:.45rem .9rem;box-shadow:var(--shadow-sm)}
+  .live-badge{display:inline-flex;align-items:center;gap:.45rem;background:var(--live);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.12em;padding:.28rem .6rem;border-radius:999px}
+  .live-badge .dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 1.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+  .live-row b{color:var(--ink);font-variant-numeric:tabular-nums}
+
+  .video{position:relative;margin:26px auto 0;max-width:840px;aspect-ratio:16/9;background:#16130f;
+    border-radius:20px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow);border:1px solid rgba(212,168,83,.25)}
+  .video .poster{position:absolute;inset:0;display:grid;place-items:center}
+  .video .poster::before{content:"";position:absolute;inset:0;opacity:.1;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='42' viewBox='0 0 44 42'%3E%3Cpath d='M22 3 L41 21 L22 39 L3 21 Z' fill='none' stroke='%23D4A853' stroke-width='1'/%3E%3C/svg%3E");background-size:44px 42px}
+  .video .play{position:relative;width:84px;height:84px;border-radius:50%;background:rgba(245,240,232,.96);display:grid;place-items:center;
+    box-shadow:0 0 0 10px rgba(212,168,83,.18);transition:transform .2s}
+  .video:hover .play{transform:scale(1.06)}
+  .video .play svg{width:30px;height:30px;margin-left:5px}
+  .video .vnote{position:absolute;left:0;right:0;bottom:18px;font-family:"Sora";font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.55)}
+  .video .bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(245,240,232,.18)}
+  .video .bar i{display:block;height:100%;width:0;background:var(--gold)}
+
+  .surprise{margin:26px auto 0;max-width:580px}
+  .waiting{border:1.5px dashed var(--line);border-radius:16px;padding:22px;color:var(--ink-soft);font-size:.98rem;background:rgba(255,255,255,.5)}
+  .waiting .count{color:var(--terracotta);font-weight:700;font-family:"Sora"}
+
+  .offer{display:none;border:1px solid var(--line);background:#fff;border-radius:22px;padding:30px 26px;box-shadow:var(--shadow);animation:rise .5s ease;position:relative;overflow:hidden}
+  .offer::before{content:"";position:absolute;top:0;right:0;width:130px;height:130px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 2 L38 20 L20 38 L2 20 Z' fill='none' stroke='%23006233' stroke-width='1'/%3E%3C/svg%3E");
+    background-size:26px 26px;opacity:.1;transform:translate(36px,-36px)}
+  .offer.show{display:block}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .offer .ar{position:relative;color:var(--terracotta);font-size:1.5rem}
+  .offer h2{position:relative;font-size:clamp(1.4rem,3.4vw,2rem);font-weight:700;margin:.3rem 0 .6rem}
+  .offer p{position:relative;color:var(--ink-soft);font-size:.98rem;margin-bottom:1.3rem}
+  .offer .cta{position:relative;display:inline-flex;align-items:center;gap:.55rem;width:100%;justify-content:center;
+    font-family:"Sora";font-weight:700;font-size:1.1rem;background:var(--green);color:var(--cream);
+    border:0;border-radius:999px;padding:1.1rem 1.4rem;cursor:pointer;box-shadow:0 14px 30px -14px rgba(0,98,51,.7);transition:background .2s,transform .15s}
+  .offer .cta:hover{background:var(--green-deep);transform:translateY(-2px)}
+  .offer .cta svg{width:19px;height:19px}
+  .offer .mini{position:relative;margin-top:14px;font-size:.82rem;color:var(--ink-soft)}
+
+  footer{padding:30px 22px 40px;border-top:1px solid var(--line);text-align:center}
+  .disc{max-width:680px;margin:0 auto;font-size:.78rem;color:var(--ink-soft);line-height:1.55}
+  .disc a{color:var(--terracotta);text-decoration:underline}
+
+  @media(min-width:760px){ main{padding:60px 22px 80px} }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <span class="brand">
+    <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 L21 12 L12 22 L3 12 Z" stroke="#D4A853" stroke-width="1.5"/><path d="M12 7 L17 12 L12 17 L7 12 Z" fill="#F5F0E8"/></svg></span>
+    Darija&nbsp;Mastery <span class="ar">دارجة</span>
+  </span>
+</div>
+
+<main>
+  <div class="stage">
+    <span class="greet" id="greet">Ta vidéo est prête</span>
+
+    <h1 class="hook">Comment ces <span class="accent">350 personnes</span> se sont mises à parler darija — sans grammaire ni cours ennuyeux&nbsp;?</h1>
+
+    <div class="live-row">
+      <span class="live-badge"><span class="dot"></span>LIVE</span>
+      <span><b id="viewers">312</b> personnes regardent cette vidéo</span>
+    </div>
+
+    <div class="video" id="video" role="button" aria-label="Lire la vidéo">
+      <div class="poster">
+        <div class="play"><svg viewBox="0 0 24 24" fill="#006233"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="vnote" id="vnote">Documentaire · 18 min · Clique pour lancer</div>
+      <div class="bar"><i id="progress"></i></div>
+    </div>
+
+    <div class="surprise">
+      <div class="waiting" id="waiting">
+        👇 Un cadeau apparaîtra <b>juste ici</b> dans <span class="count" id="countdown">0:15</span>
+      </div>
+
+      <div class="offer" id="offer">
+        <span class="ar">قبل ما نهدرو</span>
+        <h2>Avant ton appel de sélection</h2>
+        <p>Ce court questionnaire sert de base à notre appel. Il nous permet de savoir où tu en es, et si on peut vraiment t'aider à parler darija. Réponds franchement : il n'y a pas de mauvaise réponse.</p>
+        <button class="cta" id="claim">
+          Démarrer le questionnaire
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p class="disc">
+    Les informations présentées sur cette page et dans la vidéo sont fournies à titre informatif et pédagogique. Elles ne constituent ni un conseil personnalisé, ni une promesse de résultats. Chaque situation étant différente, les décisions prises à l'issue du visionnage relèvent exclusivement de votre responsabilité.<br><br>
+    En soumettant ce formulaire, vous acceptez notre <a href="#">politique de confidentialité</a>.
+  </p>
+</footer>
+
+<script>
+  const qp=new URLSearchParams(location.search);
+  const name=(qp.get('first_name')||'').trim();
+  document.getElementById('greet').textContent = name ? ('Salam '+name+' — ta vidéo est prête') : 'Ta vidéo est prête';
+
+  const vEl=document.getElementById('viewers'); let v=312;
+  setInterval(()=>{ v=Math.max(180, v+Math.round((Math.random()-0.45)*9)); vEl.textContent=v; }, 2600);
+
+  const video=document.getElementById('video'), prog=document.getElementById('progress'), vnote=document.getElementById('vnote');
+  let playing=false, pct=0;
+  video.addEventListener('click',()=>{
+    if(playing) return; playing=true;
+    video.querySelector('.play').style.opacity='0';
+    vnote.textContent='Lecture en cours…';
+    const t=setInterval(()=>{ pct=Math.min(100,pct+0.6); prog.style.width=pct+'%'; if(pct>=100)clearInterval(t); }, 300);
+  });
+
+  const cd=document.getElementById('countdown'), waiting=document.getElementById('waiting'), offer=document.getElementById('offer');
+  let secs=15; // démo : passe à 150 (2:30) ou plus en production pour révéler après le pitch
+  const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  const timer=setInterval(()=>{
+    secs--; cd.textContent=fmt(Math.max(0,secs));
+    if(secs<=0){ clearInterval(timer); waiting.style.display='none'; offer.classList.add('show'); }
+  },1000);
+
+  document.getElementById('claim').addEventListener('click',()=>{
+    const u=new URLSearchParams({first_name:name, email:qp.get('email')||''});
+    location.href='darija-mastery-questions.html?'+u.toString();
+  });
+</script>
+</body>
+</html>
